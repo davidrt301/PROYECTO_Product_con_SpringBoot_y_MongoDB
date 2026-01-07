@@ -1,0 +1,98 @@
+
+###
+@baseUrl = http://localhost:8080/api/products
+
+
+###getAllProducts
+GET {{baseUrl}}
+
+###save
+POST {{baseUrl}}
+Content-Type: application/json
+
+{ 
+    "name": "Laptop",
+    "price": 600.25,
+    "general_description": "HP 14-em0017la",
+    "specifications": {
+            "ram": "16GB",
+            "screen": "15 inch FHD",
+            "system":"Windows 11 Home",
+            "chip":"AMD Ryzen™ 5",
+            "storage":"512 SSD"
+            },
+    "tags": [
+    "tecnología",
+    "computadoras",
+    "oficina",
+    "oferta"
+    ]
+}
+
+###getById
+GET {{baseUrl}}/694af175c662e80f0227763e
+
+
+
+###getPerWord
+GET {{baseUrl}}/search?palabra=Laptop
+
+###save
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+    "name": "Laptop Gamer X1",
+    "price": 1250.50,
+    "general_description": "Laptop de alto rendimiento para juegos y diseño gráfico.",
+        "specifications": {
+        "procesador": "Intel Core i7",
+        "ram": "16GB",
+        "almacenamiento": "512GB SSD",
+        "garantia_anios": 2,
+        "incluye_mouse": true
+    },
+    "tags": [
+        "tecnología",
+        "computadoras",
+        "gaming",
+        "oferta"
+    ]
+}
+
+###getByTag
+GET {{baseUrl}}/tag?tag=oficina
+
+###getByTag
+GET http://localhost:8080/api/products/specification?llave=chip&valor=AMD Ryzen™ 5
+
+###getByPriceRange
+GET http://localhost:8080/api/products/price?mallorigal=500&menorigual=610
+
+
+###deleteProduct
+DELETE {{baseUrl}}/694bfdb2e33c0de752e8e5d1
+
+
+###save
+PUT  {{baseUrl}}/update/694c05b283a63c736b91e0a8
+Content-Type: application/json
+
+{
+    "name": "Laptop Gamer X1 modificado",
+    "price": 1250.5,
+    "specifications": {
+        "procesador": "Intel Core i7",
+        "ram": "16GB",
+        "almacenamiento": "512GB SSD",
+        "garantia_anios": "2",
+        "incluye_mouse": "si"
+    },
+    "tags": [
+        "tecnología",
+        "computadoras",
+        "gaming",
+        "oferta"
+    ],
+    "general_description": "Laptop de alto rendimiento para juegos y diseño gráfico."
+}
